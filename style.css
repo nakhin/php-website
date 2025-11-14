@@ -1,0 +1,141 @@
+body {
+    margin: 0;
+    font-family: 'Sarabun', sans-serif;
+    text-align: center;
+    color: white;
+    background: radial-gradient(circle at top left, #ffb6c1, #ff69b4, #ff1493);
+    background-size: 200% 200%;
+    animation: bgMove 8s ease infinite;
+    overflow-x: hidden; 
+    padding: 10px;
+}
+
+@keyframes bgMove { 
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+}
+
+#overlay {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+    padding: 2vw; /* เพิ่ม padding เพื่อไม่ให้แน่นจอเล็ก */
+    box-sizing: border-box;
+}
+
+#startBtn {
+    padding:1.2em 2em;
+    font-size: clamp(1em, 2vw, 1.5em); /* ขนาดปรับตามหน้าจอ */
+    border:none;
+    border-radius:10px;
+    background:#ff69b4;
+    color:white;
+    cursor:pointer;
+    box-shadow: 0 1px 15px rgba(0, 255, 0, 0.8);
+}
+#startBtn:hover { background:#ff1493; }
+
+h1 {
+    margin-top:3vh;
+    font-size: clamp(1.5em, 5vw, 2.5em);
+    text-shadow:0 0 8px #ffffff,0 0 12px #ffb6c1,0 0 20px #ff69b4,0 0 30px #ff1493,0 0 45px #ff0000ff;
+}
+
+p {
+    font-size: clamp(1em, 2.5vw, 1.2em);
+    width: 90%;
+    max-width: 800px;
+    margin: 2vh auto;
+    line-height:1.6em;
+    text-shadow:0 0 8px #ffffff,0 0 12px #ffb6c1,0 0 20px #ff69b4,0 0 30px #ff1493,0 0 45px #ff0000ff;
+}
+
+.from { font-size: clamp(0.9em, 2vw, 1em); margin-top:1.5vh; }
+
+/* .photo-box { 
+    display:flex; 
+    justify-content:center; 
+    flex-wrap:wrap; 
+    margin:2vh auto; 
+}
+.photo-box img {
+    width: clamp(100px, 20vw, 150px); 
+    height: auto;
+    border-radius:15px;
+    margin:0.5vw;
+    transition:0.3s;
+    box-shadow: 0 1px 15px rgba(43, 255, 0, 0.8);
+}
+.photo-box img:hover {
+    transform: scale(1.12);
+    filter: brightness(1.2);
+} */
+
+.video-container {
+    width:100%;
+    max-width:600px;
+    margin:2vh auto;
+}
+.video-container video {
+    width:100%;
+    height:auto;
+    border-radius:15px;
+    box-shadow: 0 1px 15px rgba(43, 255, 0, 0.8);
+}
+
+.float { 
+    position:fixed; 
+    bottom:0; 
+    opacity:0.9; 
+    animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+    0%{transform:translateY(0) rotate(0deg);opacity:1;}
+    100%{transform:translateY(-900px) rotate(360deg);opacity:0;}
+}
+
+/* Media Queries สำหรับหน้าจอเล็ก */
+@media(max-width:480px){
+    h1{font-size:2.2em; margin-top:15px;}
+    p{font-size:1em;width:95%;}
+    .from{font-size:0.9em;}
+    .photo-box img{width:45%; margin:5px;}
+}
+
+
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 คอลัมน์เท่า ๆ กัน */
+    gap: 10px; /* ไม่มีช่องว่างระหว่างรูป */
+    width: 100%;
+    max-width: 1200px; /* สามารถปรับตามต้องการ */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+    
+}
+
+.photo-grid img {
+    width: 100%;    /* เต็ม column */
+    height: auto;   /* รักษาสัดส่วน */
+    aspect-ratio: 1/1; /* บังคับให้เป็นสี่เหลี่ยมจัตุรัส */
+    object-fit: cover; /* ตัดส่วนเกินให้เต็ม */
+    display: block;
+    margin-right: 5px;
+    /* box-shadow: 0 1px 15px rgba(43, 255, 0, 0.8); */
+    border-radius:15px;
+}
+
+
+/* สำหรับมือถือ ให้ยังเป็น 3 คอลัมน์ */
+@media(max-width:480px){
+    .photo-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 5px;
+    }
+}

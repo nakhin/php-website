@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สุขสันต์วันเกิด FAN 🎂</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="overlay">
+    <h1>ສຸກສັນວັນເກີດເດີ້  🎉</h1>
+    <p>ກົດປຸ່ມ Start</p>
+    <button id="startBtn">(Start)</button>
+</div>
+
+<div class="video-container">
+<!-- วิดีโอ -->
+<video id="myVideo" playsinline controls>
+  <source src="public/jinda.mp4" type="video/mp4">
+</video>
+</div>
+
+<h1>Happy BirthDay To You FAN 🎉</h1>
+
+<!-- รูปภาพ -->
+<div class="photo-grid"> 
+    <img src="image/pic1.jpg" alt="รูปแฟน">
+    <img src="image/pic2.jpg" alt="รูปแฟน">
+    <img src="image/pic3.jpg" alt="รูปแฟน">
+</div>
+
+
+
+
+<p>ວັນເກີດປີນີ້ ຂໍໃຫ້ເຈິະແຕ່ສີ່ງດີດີເຂົ້າມາໃນຊີວິດ ຂໍໃຫ້ປະສົບຜົນສໍາເລັດໃຫ້ຫນ້າທີການງານ ຂໍໃຫ້ເປັນປີທີ່ມີແຕ່ຄວາມສຸກຫລາຍຫລາຍເດິ້</p>
+
+<div class="from">Jinda Chanthaphavong . 💌</div>
+
+<script>
+// สร้างหัวใจลอย
+for(let i=0;i<25;i++){
+    const heart=document.createElement('div');
+    heart.className='float';
+    heart.innerText='💖';
+    heart.style.left=Math.random()*100+'%'; 
+    heart.style.fontSize=(18+Math.random()*17)+'px';
+    heart.style.animationDuration=(6+Math.random()*6)+'s';
+    heart.style.animationDelay=(Math.random()*8)+'s';
+    document.body.appendChild(heart);
+}
+
+// เล่นวิดีโอเมื่อกดปุ่ม
+document.getElementById('startBtn').addEventListener('click',()=>{
+    document.getElementById('overlay').style.display='none';
+    const video=document.getElementById('myVideo');
+    video.muted=false;
+    video.play();
+});
+</script>
+
+</body>
+</html>
